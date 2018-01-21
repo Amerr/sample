@@ -1,0 +1,429 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.movie {
+	height: 350px;
+	width:  250px;
+}
+
+.movie-show {
+	height: 475px;
+	width:  325px;
+}
+
+/* Variables, mixins, etc.. */
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px 4px #ccc;
+	padding: 0.6em 0.6em;
+}
+
+$primary-color: #F43E50;
+$primary-color-hover: #d43d4c;
+$white: #fff;
+
+/* General styles */
+
+body {
+	background: #1F2324;
+	font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+p.alert, p.notice {
+	margin: 0;
+}
+
+
+/* Navbar/navigation styles */
+
+.navbar {
+	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
+}
+.navbar-default {
+	background-color: $primary-color;
+	border: 0;
+	padding-bottom: 5px;
+	padding-top: 5px;
+
+	.navbar-nav > li > a {
+		color: $white;
+		&:hover {
+			background: $white;
+			color: $primary-color;
+			transition: 0.5s;
+		}
+	}
+
+	.navbar-header {
+
+		.navbar-brand {
+			color: $white;
+			letter-spacing: 1.4px;
+			text-transform: uppercase;
+			font-size: 2.3em;
+			font-weight: bold;
+		}
+
+	}
+
+	.dropdown-menu > li > a:hover {
+		background-color: $primary-color;
+		color: #fff;
+	}
+
+	.navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
+		background-color: $primary-color;
+		color: #fff;
+	}
+
+}
+
+.dropdown-menu > .active > a {
+	background-color: $primary-color;
+	color: #fff;
+}
+
+
+/* Button/link styles */
+
+.btn-custom {
+	color: darken(#bdbdbd, 5%);
+	background-color: #fff;
+	border: 1px solid darken(#bdbdbd, 5%);
+	padding: 8px 20px;
+	border-radius: 0px;
+	font-family: 'Lato', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#bdbdbd, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
+.btn-custom2 {
+	color: $white;
+	background-color: $primary-color;
+	border-radius: 5px;
+	padding: 8px 20px;
+	font-family: 'Lato', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #333;
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
+.links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+	}
+
+}
+
+.movie-links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+		margin-top: 40px;
+	}
+
+}
+
+/* Movie styles */
+
+.movie {
+	display: block;
+	height: 350px;
+	width: 250px;
+	margin-bottom: 50px;
+	position: relative;
+
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__content {
+		background-color: $white;
+		bottom: 0;
+		padding: 10px 15px;
+		position: absolute;
+		width: 100%;
+		border-top: 2px solid $primary-color;
+
+		h3 {
+			color: $primary-color;
+			margin: 0;
+		}
+	}
+}
+
+.movie__show {
+	height: 475px;
+	width: 325px;
+}
+
+.movie__info {
+	background: $white;
+	padding: 20px;
+	border: 1px solid $primary-color;
+	border-radius: 5px;
+
+	.movie__title {
+		color: $primary-color;
+		margin-top: 0;
+		font-size: 4em;
+		font-weight: bold;
+	}
+
+	.avg-rating {
+		font-size: 1.5em;
+		margin-top: 75px;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+
+	.number-of-reviews {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.movie__director {
+		font-size: 1.5em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-style: italic;
+		font-weight: lighter;
+		span {
+			font-size: 0.80em;
+		}
+	}
+
+	.movie__category {
+		border: 1px solid $primary-color;
+		border-radius: 5px;
+		padding: 3px;
+	}
+
+	.movie__desc {
+		font-size: 1.05em;
+		line-height: 1.5;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+
+}
+
+
+/* current-category styles */
+
+.current-category {
+	margin-bottom: 40px;
+}
+
+
+/* Reviews styles */
+
+.reviews {
+	margin-top: 40px;
+	background: $white;
+	padding: 10px;
+	border-radius: 5px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	.review {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
+}
+
+/* New Movie Form styles */
+
+.new-movie-form {
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+		font-weight: bold;
+	}
+
+	#category_id {
+		margin-bottom: 10px;
+	}
+
+	#movie_movie_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+
+/* Edit Movie Form styles */
+
+.edit-movie-form {
+
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+		font-weight: bold;
+	}
+
+	#movie_category_id {
+		margin-bottom: 10px;
+	}
+
+	#movie_movie_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+/* New/Edit review form styles */
+
+.new-review-form, .edit-review-form {
+	background: $white;
+	border-radius: 5px;
+	padding: 10px;
+
+	h1 {
+		color: $primary-color;
+		margin-top: 0;
+		font-weight: bold;
+	}
+
+	#rating-form {
+		margin-bottom: 15px;
+
+		label {
+			display: block;
+		}
+
+	}
+
+}
+
+
+/* Signup/Login form styles */
+
+.signup-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+		font-weight: bold;
+	}
+
+}
+
+.login-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+// search-form
+
+.search-form {
+	margin-bottom: 50px;
+	&__input {
+		border: 0;
+		border-radius: 100px;
+		padding: 5px 10px;
+		padding-left: 20px;
+		margin-right: 5px;
+		width: 20%;
+		transition: 0.3s width ease;
+
+		&:focus {
+			width: 50%;
+			outline: 0;
+		}
+	}
+
+	&__button {
+		padding: 5px 10px;
+		border-radius: 100px;
+		border: 0;
+		background: $primary-color;
+		color: $white;
+		width: 100px;
+	}
+}
+
+.btn-primary {
+	background: $primary-color;
+	color: $white;
+	padding: 10px 15px;
+
+	&:hover {
+		background-color: $primary-color-hover;
+	}
+}
+
+.pagination {
+	a {
+		color: $white;
+	}
+	em.current {
+		color: $primary-color;
+		font-style: normal;
+	}
+
+	.disabled {
+
+	}
+}
